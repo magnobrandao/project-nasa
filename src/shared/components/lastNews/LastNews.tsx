@@ -10,9 +10,8 @@ import {
     Wrap,
     WrapItem,
     SpaceProps,
-    useColorModeValue,
     Container,
-    VStack,
+
 } from '@chakra-ui/react'
 
 interface IBlogTags {
@@ -41,37 +40,17 @@ const BlogTags = (props: Props) => {
     )
 }
 
-interface BlogAuthorProps {
-    date: Date
-    name: string
-}
-
-const BlogAuthor = (props: BlogAuthorProps) => {
-    return (
-        <HStack marginTop="2" spacing="2" display="flex" alignItems="center">
-            <Image
-                borderRadius="full"
-                boxSize="40px"
-                src="https://100k-faces.glitch.me/random-image"
-                alt={`Avatar of ${props.name}`}
-            />
-            <Text fontWeight="medium">{props.name}</Text>
-            <Text>—</Text>
-            <Text>{props.date.toLocaleDateString()}</Text>
-        </HStack>
-    )
-}
 
 const LastNews = () => {
     return (
-        <Container maxW={'6xl'} p="12">
+        <Container maxW={'4xl'} color="white">
 
-            <Heading as="h2" marginTop="5">
-                Latest articles
+            <Heading as="h2" marginTop="12">
+                Latest News
             </Heading>
             <Divider marginTop="5" />
             <Wrap spacing="30px" marginTop="5">
-                <WrapItem width={{ base: '100%', sm: '45%', md: '45%', lg: '30%' }}>
+                <WrapItem width={{ base: '100%' }}>
                     <Box w="100%">
                         <Box borderRadius="lg" overflow="hidden">
                             <Box textDecoration="none" _hover={{ textDecoration: 'none' }}>
