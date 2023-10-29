@@ -14,6 +14,7 @@ import {
     useDisclosure,
     BoxProps,
     FlexProps,
+    Link
 } from '@chakra-ui/react'
 import {
     FiHome,
@@ -25,24 +26,27 @@ import {
 } from 'react-icons/fi'
 import { IconType } from 'react-icons'
 import { ReactText } from 'react'
+import { JsxElement } from 'typescript'
+import { Navigate } from 'react-router-dom'
 
-interface LinkItemProps {
+interface LinkItemProps extends FlexProps {
     name: string
     icon: IconType
+    navigate?: string | null
 }
 const LinkItems: Array<LinkItemProps> = [
-    { name: 'Home', icon: FiHome },
+    { name: 'Home', icon: FiHome, navigate: "/" },
     { name: 'Trending', icon: FiTrendingUp },
     { name: 'Explore', icon: FiCompass },
     { name: 'Favourites', icon: FiStar },
     { name: 'Settings', icon: FiSettings },
 ]
 
-interface HomeLayoutProps {
+interface DefaultLayoutProps {
     children: ReactNode
 }
 
-export default function BaseLayout({ children }: HomeLayoutProps) {
+export default function DefaultLayout({ children }: DefaultLayoutProps) {
     const { isOpen, onOpen, onClose } = useDisclosure()
     return (
         <Box h="100%" width="100%" bg='linear-gradient(to top, #283E51, #0A2342)'>
@@ -103,10 +107,11 @@ const SidebarContent = ({ onClose, ...rest }: SidebarProps) => {
                 <CloseButton display={{ base: 'flex', md: 'none' }} onClick={onClose} />
             </Flex>
             {LinkItems.map((link) => (
-                <NavItem key={link.name} color="white" icon={link.icon}>
+                <NavItem color="white" icon={link.icon}>
                     {link.name}
                 </NavItem>
-            ))}
+            )
+            )}
         </Box>
     )
 }

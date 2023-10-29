@@ -1,7 +1,7 @@
 
 import { Card, CardBody, CardFooter, Divider, Heading, Stack, Image, Box, Flex, Text, Modal, ModalCloseButton, ModalContent, ModalOverlay, useDisclosure } from '@chakra-ui/react';
 import LastNews from '../../shared/components/lastNews/LastNews';
-import BaseLayout from '../../layouts/Baselayout';
+import DefaultLayout from '../../layouts/Defaultlayout';
 import ToggleLightDark from '../../shared/components/toggleLightDark/toggleLightDark';
 import { DatePickerComponent } from '../../modules/dataPicker/DataPicker';
 
@@ -30,7 +30,7 @@ export function Home() {
 
     return (
 
-        <BaseLayout >
+        <DefaultLayout >
             <dataContext.Provider value={{ startDate, handleDateChange }}>
                 <Text textAlign="center"
                     fontSize="4xl"
@@ -102,7 +102,7 @@ export function Home() {
                 </Modal>
             </dataContext.Provider>
 
-        </BaseLayout>
+        </DefaultLayout>
 
     );
 
