@@ -42,7 +42,7 @@ interface HomeLayoutProps {
     children: ReactNode
 }
 
-export default function HomeLayout({ children }: HomeLayoutProps) {
+export default function BaseLayout({ children }: HomeLayoutProps) {
     const { isOpen, onOpen, onClose } = useDisclosure()
     return (
         <Box h="100%" width="100%" bg='linear-gradient(to top, #283E51, #0A2342)'>

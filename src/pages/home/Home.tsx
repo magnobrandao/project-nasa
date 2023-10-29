@@ -1,7 +1,7 @@
 
 import { Card, CardBody, CardFooter, Divider, Heading, Stack, Image, Box, Flex, Text, Modal, ModalCloseButton, ModalContent, ModalOverlay, useDisclosure } from '@chakra-ui/react';
 import LastNews from '../../shared/components/lastNews/LastNews';
-import HomeLayout from '../../layouts/home.layout';
+import BaseLayout from '../../layouts/Baselayout';
 import ToggleLightDark from '../../shared/components/toggleLightDark/toggleLightDark';
 import { DatePickerComponent } from '../../modules/dataPicker/DataPicker';
 
@@ -16,7 +16,7 @@ interface dataContextType {
 export const dataContext = createContext({} as dataContextType)
 
 
-export default function Home() {
+export function Home() {
 
     const { isOpen: isOpenModal2, onOpen: onOpenModal2, onClose: onCloseModal2 } = useDisclosure();
     const { imageUrl, title } = useApodApi();
@@ -30,7 +30,7 @@ export default function Home() {
 
     return (
 
-        <HomeLayout >
+        <BaseLayout >
             <dataContext.Provider value={{ startDate, handleDateChange }}>
                 <Text textAlign="center"
                     fontSize="4xl"
@@ -102,7 +102,7 @@ export default function Home() {
                 </Modal>
             </dataContext.Provider>
 
-        </HomeLayout>
+        </BaseLayout>
 
     );
 
