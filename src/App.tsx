@@ -2,7 +2,8 @@ import React from 'react';
 
 import './App.css';
 import { ChakraProvider } from '@chakra-ui/react';
-import Home from './pages/home/Home';
+import { BrowserRouter } from 'react-router-dom'
+import { Router } from './Router'
 
 
 
@@ -10,7 +11,9 @@ export default function App() {
   return (
 
     <ChakraProvider >
-      <Home />
+      <BrowserRouter>
+        <Router />
+      </BrowserRouter>
     </ChakraProvider>)
 }
 
