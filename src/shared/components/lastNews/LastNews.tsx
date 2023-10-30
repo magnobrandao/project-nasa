@@ -14,12 +14,14 @@ import { Link } from "react-router-dom";
 
 interface DataProps {
     id: string;
+
     name: string;
     is_potentially_hazardous_asteroid: boolean;
     kilometers_per_hour: string;
 }
 
 const LastNews = () => {
+
     const [data, setData] = useState([]);
 
     const fetchData = async () => {
@@ -45,11 +47,13 @@ const LastNews = () => {
 
     return (
         <Container maxW={"4xl"} color="white">
+
             <Heading as="h2" marginTop="12">
                 Latest News
             </Heading>
             <Divider marginTop="5" />
             <Wrap spacing="30px" marginTop="5">
+
                 {data?.map((item: DataProps) => {
                     return (
                         <Link to={`/detail/${item.id}`}>
@@ -75,6 +79,7 @@ const LastNews = () => {
                         </Link>
                     );
                 })}
+
             </Wrap>
         </Container>
     );
