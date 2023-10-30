@@ -1,5 +1,5 @@
 import { Route, Routes } from 'react-router-dom'
-import { Details } from './pages/details/Details'
+import { Detail } from './pages/details/Detail'
 
 import { Home } from './pages/home/Home'
 import { Search } from './pages/search/Search'
@@ -9,9 +9,9 @@ export function Router() {
         <Routes>
             <Route path="/" element={<Home />} />
 
-            <Route path="/detail:id" element={<Details />} />
+            <Route path="/detail/:id" element={<Detail />} />
 
-           
+
             <Route path="/search" element={<Search />} />
 
         </Routes>

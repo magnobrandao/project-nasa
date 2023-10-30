@@ -21,9 +21,10 @@ interface AsteroidData {
     designation: string;
     absolute_magnitude_h: number;
     is_potentially_hazardous_asteroid: boolean;
+    is_sentry_object: boolean
 }
 
-export function Details() {
+export function Detail() {
 
     const { id } = useParams();
 
@@ -32,7 +33,7 @@ export function Details() {
     const getAsteroidData = async () => {
         try {
             const response = await axios.get(
-                "https://api.nasa.gov/neo/rest/v1/neo/2164294?api_key=Ie25M3zSZBhfrQdesyHL1O7jQHJQwWHp5voA4BCE"
+                `https://api.nasa.gov/neo/rest/v1/neo/${id}?api_key=Ie25M3zSZBhfrQdesyHL1O7jQHJQwWHp5voA4BCE`
             );
             setAsteroidData(response.data);
         } catch (error) {
@@ -72,18 +73,26 @@ export function Details() {
                                     <Td>{asteroidData.id}</Td>
                                 </Tr>
                                 <Tr>
-                                    <Td>Designation:</Td>
+                                    <Td>Designação:</Td>
                                     <Td>{asteroidData.designation} (cm)</Td>
                                 </Tr>
                                 <Tr>
-                                    <Td>Absolute Magnitude:</Td>
+                                    <Td>Magnitude absoluta:</Td>
                                     <Td>{asteroidData.absolute_magnitude_h}</Td>
                                 </Tr>
 
                                 <Tr>
-                                    <Td>Potentially Hazardous:</Td>
+                                    <Td>Asteroide potencialmente perigoso:</Td>
                                     <Td>
                                         {asteroidData.is_potentially_hazardous_asteroid
+                                            ? "Yes"
+                                            : "No"}
+                                    </Td>
+                                </Tr>
+                                <Tr>
+                                    <Td>Objeto sentinela:</Td>
+                                    <Td>
+                                        {asteroidData.is_sentry_object
                                             ? "Yes"
                                             : "No"}
                                     </Td>

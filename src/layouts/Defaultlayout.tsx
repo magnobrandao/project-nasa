@@ -110,7 +110,7 @@ const SidebarContent = ({ onClose, ...rest }: SidebarProps) => {
                     color="white"
                     fontWeight="bold"
                 >
-                    Magno
+                    Magno Space
                 </Text>
                 <CloseButton display={{ base: "flex", md: "none" }} onClick={onClose} />
             </Flex>
@@ -198,7 +198,7 @@ const MobileNav = ({ onOpen, ...rest }: MobileProps) => {
                 color="white"
                 fontWeight="bold"
             >
-                Logo
+                Magno Space
             </Text>
         </Flex>
     );
