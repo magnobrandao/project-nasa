@@ -1,3 +1,4 @@
+
 # Projeto Técnico - NASA Api
 O projeto proposto envolve a criação de um aplicativo que integra com a API da NASA para mostrar dados de imagens e objetos próximos à Terra.
 
@@ -50,3 +51,4 @@ Antes de começar, você vai precisar ter instalado em sua máquina as seguintes
 # Após a instalação, execute o comando para rodar a aplicação
 
   $ npm start
+
