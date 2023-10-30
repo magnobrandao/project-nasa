@@ -1,4 +1,4 @@
-//@ts-nocheck
+
 import {
     Card,
     CardBody,
@@ -20,31 +20,23 @@ import { Button } from "@chakra-ui/button";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { MdSearch } from "react-icons/md";
-import LastNews from "../../shared/components/lastNews/LastNews";
+import NearEarth from "../../shared/components/nearEarth/NearEarth";
 import DefaultLayout from "../../layouts/Defaultlayout";
 import ToggleLightDark from "../../shared/components/toggleLightDark/toggleLightDark";
 import api from "../../services/ApodApi";
-import useApodApi from "../../hooks/useApodApi";
-import { createContext, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { format } from "date-fns";
-
-interface dataContextType {
-    startDate: Date | null;
-    handleDateChange: (date: Date | null) => void;
-}
-
-export const dataContext = createContext({} as dataContextType);
 
 export function Home() {
     const {
-        isOpen: isOpenModal2,
-        onOpen: onOpenModal2,
-        onClose: onCloseModal2,
+        isOpen: isOpenModal,
+        onOpen: onOpenModal,
+        onClose: onCloseModal,
     } = useDisclosure();
 
-    const [startDate, setStartDate] = useState<Date | null>(new Date());
+    const [startDate, setStartDate] = useState<Date | null | any>(new Date());
 
-    const [data, setData] = useState();
+    const [data, setData] = useState<any>();
 
     const [error, setError] = useState(false);
 
@@ -135,7 +127,7 @@ export function Home() {
 
                         <Image
                             src={!error && data?.url}
-                            onClick={onOpenModal2}
+                            onClick={onOpenModal}
                             borderRadius="md"
                             cursor="pointer"
                             maxH="50vh"
@@ -146,17 +138,17 @@ export function Home() {
                     <CardFooter />
                 </Card>
                 <Box>
-                    <LastNews />
+                    <NearEarth />
                 </Box>
             </Flex>
-            <Modal isOpen={isOpenModal2} onClose={onCloseModal2} size="4xl">
+            <Modal isOpen={isOpenModal} onClose={onCloseModal} size="4xl">
                 <ModalOverlay />
                 <ModalContent>
                     <ModalCloseButton />
 
                     <Image
                         src={!error && data?.url}
-                        onClick={onOpenModal2}
+                        onClick={onOpenModal}
                         borderRadius="sm"
                         maxH="80vh"
                         minW="100%"

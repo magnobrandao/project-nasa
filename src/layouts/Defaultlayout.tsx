@@ -15,28 +15,23 @@ import {
 } from "@chakra-ui/react";
 import {
     FiHome,
-    FiTrendingUp,
-    FiCompass,
-    FiStar,
-    FiSettings,
     FiMenu,
+    FiSearch,
 } from "react-icons/fi";
 import { IconType } from "react-icons";
 import { ReactText } from "react";
-import { JsxElement } from "typescript";
-import { Link, Navigate } from "react-router-dom";
-
+import { Link } from "react-router-dom";
+import star from '../assets/stars.png'
 interface LinkItemProps extends FlexProps {
     name: string;
     icon: IconType;
     url: string;
+
 }
 const LinkItems: Array<LinkItemProps> = [
     { name: "Home", icon: FiHome, url: "/" },
-    { name: "Trending", icon: FiSettings, url: "/trending" },
-    { name: "Explore", icon: FiCompass, url: "/" },
-    { name: "Favourites", icon: FiStar, url: "/" },
-    { name: "Settings", icon: FiSettings, url: "/" },
+    { name: "Buscar Imagem", icon: FiSearch, url: "/search" },
+
 ];
 
 interface DefaultLayoutProps {
@@ -56,7 +51,7 @@ export default function DefaultLayout({ children }: DefaultLayoutProps) {
                 width="100%"
                 height="100%"
                 display="block"
-                bg="url(http://www.script-tutorials.com/demos/360/images/stars.png) repeat top center"
+                bg="url(https://i.imgur.com/sBGBKME.png) repeat top center"
                 zIndex={0}
                 bgSize="cover" // Define o tamanho de fundo para cobrir o contêiner
                 bgPosition="top center" // Define a posição de fundo
@@ -116,7 +111,7 @@ const SidebarContent = ({ onClose, ...rest }: SidebarProps) => {
             </Flex>
 
             {LinkItems.map((link) => (
-                <Link to={link.url}>
+                <Link key={link.id} to={link.url}>
                     <NavItem color="white" icon={link.icon}>
                         {link.name}
                     </NavItem>

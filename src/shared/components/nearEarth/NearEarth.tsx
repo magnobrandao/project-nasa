@@ -7,10 +7,8 @@ import {
     WrapItem,
     Container,
 } from "@chakra-ui/react";
-import axios from "axios";
-import { useEffect, useState } from "react";
-import { format } from "date-fns";
 import { Link } from "react-router-dom";
+import { useApiNearEarth } from "../../../hooks/useApiNearEarth";
 
 interface DataProps {
     id: string;
@@ -20,46 +18,29 @@ interface DataProps {
     kilometers_per_hour: string;
 }
 
-const LastNews = () => {
+const NearEarth = () => {
 
-    const [data, setData] = useState([]);
-
-    const fetchData = async () => {
-        try {
-            const response = await axios.get(
-                `https://api.nasa.gov/neo/rest/v1/feed?&api_key=aZY4Scxk3GwAsUJBdiVJ6FLn5g61qB6uY2Jirr57`
-            );
-            const date = format(new Date(), "yyyy-MM-dd");
-            const dataFromApi = response?.data?.near_earth_objects[date];
-            setData(dataFromApi);
-            console.log(
-                "🚀 ~ file: LastNews.tsx:34 ~ .then ~ dataFromApi:",
-                dataFromApi
-            );
-        } catch (error) {
-            console.log(error);
-        }
-    };
-
-    useEffect(() => {
-        fetchData();
-    }, []);
+    const data = useApiNearEarth();
 
     return (
         <Container maxW={"4xl"} color="white">
 
-            <Heading as="h2" marginTop="12">
-                Latest News
+            <Heading as="h2" marginTop="12" size="lg">
+                Asteroides próximos
             </Heading>
             <Divider marginTop="5" />
             <Wrap spacing="30px" marginTop="5">
 
-                {data?.map((item: DataProps) => {
+                {data?.slice(0, 8).map((item: DataProps) => {
                     return (
                         <Link to={`/detail/${item.id}`}>
                             <WrapItem width={{ base: "100%" }}>
-                                <Box w="100%" borderRadius="lg" overflow="hidden">
-                                    <Heading fontSize="xl" marginTop="2">
+                                <Box w="100%" borderRadius="lg" overflow="hidden" bg="linear-gradient(to top, #283E51, #2665b3, rgba(0, 0, 0, 0.6))" p="4" my="1"
+                                    _hover={{
+                                        boxShadow: "0 0 100px rgba(255, 5, 5, 0.8)",
+                                        transition: "all 0.3s ease;"
+                                    }}>
+                                    <Heading fontSize="2xl" marginTop="2" color="whiteAlpha.900">
                                         <Text
                                             textDecoration="none"
                                             _hover={{ textDecoration: "none" }}
@@ -67,12 +48,9 @@ const LastNews = () => {
                                             {item?.name}
                                         </Text>
                                     </Heading>
-                                    <Text as="p" fontSize="md" marginTop="2">
+                                    <Text as="p" fontSize="md" marginTop="2" color="white">
                                         is_potentially_hazardous_asteroid:{" "}
                                         {item?.is_potentially_hazardous_asteroid?.toString()}
-                                    </Text>
-                                    <Text as="p" fontSize="md" marginTop="2">
-                                        kilometers_per_hour: {item?.kilometers_per_hour}
                                     </Text>
                                 </Box>
                             </WrapItem>
@@ -85,4 +63,4 @@ const LastNews = () => {
     );
 };
 
-export default LastNews;
+export default NearEarth;
