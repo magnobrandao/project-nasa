@@ -1,46 +1,54 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Projeto Técnico - NASA Api
+O projeto proposto envolve a criação de um aplicativo que integra com a API da NASA para mostrar dados de imagens e objetos próximos à Terra.
 
-## Available Scripts
+## Recursos Utilizados no Projeto
 
-In the project directory, you can run:
+**Typescript:** Foi empregado o Typescript para melhorar a qualidade do código, através da adoção de tipagem estática.
 
-### `npm start`
+**React:** A biblioteca React foi fundamental para criar interfaces de usuário interativas e responsivas. Com ela, foi possível dividir a aplicação em componentes reutilizáveis, facilitando o desenvolvimento e a manutenção do código. 
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+**Branches e Convenção de Commits:** A metodologia de trabalho com branches foi adotada para organizar o desenvolvimento de forma mais eficiente. Cada funcionalidade ou correção foi desenvolvida em sua própria branch, permitindo uma implementação isolada e segura. A convenção de commits adotada tornou o histórico de alterações mais claro e compreensível, facilitando o entendimento do que foi modificado em cada etapa do desenvolvimento.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+**Chakra UI:** A biblioteca de componentes Chakra UI foi utilizada para acelerar o desenvolvimento da interface de usuário. Com uma vasta gama de componentes prontos e estilizados, foi possível criar uma aparência moderna e responsiva para a aplicação sem a necessidade de estilização manual. 
 
-### `npm test`
+## Funcionalidades
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- Mostra como padrão a imagem do dia com o nome acima da imagem.
+- É ser possível realizar uma pesquisa com a data em que se deseja ver a imagem.
+- Ao clicar na imagem deve abre um modal para melhor visualização.
+- Aside com 'Asteroide Próximos' contendo os dados de objetos próximos à terra .
+- Página onde é possível ver os objetos próximos à terra detalhadamente com todas as informações, basta clicar.
+- Tema Light/Dark
+- Busca de imagem 
 
-### `npm run build`
+- ## Visualização do Projeto
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+![App Screenshot](https://i.imgur.com/n3asOaG.png)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## 🔗 Pré-requisitos
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Antes de começar, você vai precisar ter instalado em sua máquina as seguintes ferramentas: git e node.js. Você também vai precisar de um editor de código, recomendo o VS Code.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Rodando o Projeto
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+```bash
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+# Clone este repositório (ou download )
 
-## Learn More
+ git clone git@github.com:magnobrandao/project-nasa.git
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+# Acesse a pasta do projeto no terminal/cmd
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+  $ cd project-nasa
+
+# Instale as dependências
+
+  $ npm install 
+
+# Após a instalação, execute o comando para rodar a aplicação
+
+  $ npm start
+
